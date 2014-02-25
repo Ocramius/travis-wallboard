@@ -105,7 +105,7 @@ module.exports = (grunt) ->
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       pages:
         options:
-          remote: 'git@github.com:keboola/travis-wallboard.git',
+          remote: "https://#{process.env.GH_TOKEN}@github.com/keboola/travis-wallboard.git"
           branch: 'gh-pages'
 
   )
