@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- '0.10'
+notifications:
+  email: false
+install:
+- time gem install compass --version 1.0.0.alpha.17
+- time npm install -g grunt-cli bower
+- time npm install
+- bower --version
+- time bower install --dev
+script: grunt
+after_success:
+- grunt publish
