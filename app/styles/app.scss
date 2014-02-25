@@ -1,0 +1,49 @@
+
+
+$grid-gutter-width: 5px;
+$fa-font-path:   "/fonts";
+
+@import 'twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap';
+@import 'font-awesome/scss/font-awesome';
+
+
+body {
+    background-color: #000;
+    margin: 10px;
+}
+
+.alert-success {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.alert-danger {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.alert-warning {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.alert {
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.alert a {
+    color: #fff;
+    font-weight: bold;
+}
+
+.repository-details {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #eee;
+}
+
+.repository-details .fa {
+  margin-right: 3px;
+}
