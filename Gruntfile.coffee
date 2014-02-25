@@ -97,6 +97,17 @@ module.exports = (grunt) ->
             dest: 'dist/fonts/'
         ]
 
+    buildcontrol:
+      options:
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      pages:
+        options:
+          remote: 'git@github.com:keboola/travis-wallboard.git',
+          branch: 'gh-pages'
+
   )
 
   grunt.registerTask "serve", (target) ->
@@ -120,6 +131,10 @@ module.exports = (grunt) ->
     "cssmin"
     "uglify"
     "copy"
+  ]
+
+  grunt.registerTask "publish", [
+    "buildcontrol:pages"
   ]
 
   grunt.registerTask "default", "build"
