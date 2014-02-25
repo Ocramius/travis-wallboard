@@ -7,13 +7,15 @@ _ = require('underscore')
 
 RepositoryList = React.createClass(
 
+  displayName :'RepositoryList'
+
   render: ->
     repositoryRows = _.chain(@props.repos)
     .groupBy (repo, index) ->
         Math.floor(index / 2)
     .toArray()
     .map((reposPair) ->
-        (RepositoryRow {repos: reposPair})
+        (RepositoryRow {repos: reposPair, key: reposPair[0].id + '-' + reposPair[1].id})
       )
 
     (div {className: 'container-fluid'}, repositoryRows)

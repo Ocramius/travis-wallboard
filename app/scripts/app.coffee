@@ -10,7 +10,9 @@ api = new TravisApi()
 render = ->
   api.getRepos(member: 'Halama').done((repos) ->
     console.log 'repos', repos
+    console.time("Render")
     React.renderComponent(RepositoryList(repos: repos), document.body)
+    console.timeEnd("Render")
   )
 
 render()
