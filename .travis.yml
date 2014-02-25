@@ -10,5 +10,3 @@ install:
 - bower --version
 - time bower install --dev
 script: grunt
-after_success:
-- test ${TRAVIS_BRANCH} = master && grunt publish
