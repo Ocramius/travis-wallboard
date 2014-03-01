@@ -7,18 +7,25 @@ _ = require('underscore')
 
 RepositoryList = React.createClass(
 
-  displayName :'RepositoryList'
+  displayName :'RepositoryFilter'
+
+  pairs: ->
+    _.chain(@props.repos)
+      .groupBy (repo, index) ->
+          Math.floor(index / 2)
+      .toArray()
 
   render: ->
-    repositoryRows = _.chain(@props.repos)
-    .groupBy (repo, index) ->
-        Math.floor(index / 2)
-    .toArray()
-    .map((reposPair) ->
-        (RepositoryRow {repos: reposPair, key: reposPair[0].id + '-' + reposPair[1].id})
+    if !@props.repos.length
+      (div {className: 'container-fluid'},
+        (div {className: 'alert alert-default'}, 'No repositories found.')
+      )
+    else
+      rows = @pairs().map((reposPair) ->
+        (RepositoryRow {repos: reposPair, key: reposPair[0].id + '-' + reposPair[1]?.id})
       )
 
-    (div {className: 'container-fluid'}, repositoryRows)
+      (div {className: 'container-fluid'}, rows)
 )
 
 module.exports = RepositoryList

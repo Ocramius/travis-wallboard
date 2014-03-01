@@ -3,13 +3,38 @@
 $grid-gutter-width: 5px;
 $fa-font-path:   "../fonts";
 
+$input-bg: #333;
+$input-border: #333;
+$input-color: #ccc;
+$input-border-focus: #333;
+
+
 @import 'twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
+
+
+
+
+
+/**
+* Inputs
+*/
 
 
 body {
     background-color: #000;
     margin: 10px;
+}
+
+.alert {
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.alert a {
+  color: #fff;
+  font-weight: bold;
 }
 
 .alert-success {
@@ -27,16 +52,13 @@ body {
     border-color: #eea236;
 }
 
-.alert {
-    color: #fff;
-    margin-bottom: 5px;
-    font-size: 18px;
+.alert-default {
+  color: #BEBEBE;
+  background-color: #0F0F0F;
+  border-color: #181818;
 }
 
-.alert a {
-    color: #fff;
-    font-weight: bold;
-}
+
 
 .repository-details {
   margin-top: 10px;
@@ -46,4 +68,27 @@ body {
 
 .repository-details .fa {
   margin-right: 3px;
+}
+
+.form-repository-filter {
+  border-radius: 4px;
+  max-width: 500px;
+  padding: 15px;
+  padding-top: 10%;
+  margin: 0 auto;
+}
+
+.form-repository-filter h1 {
+  text-transform: uppercase;
+  font-size: 22px;
+  color: #fff;
+  margin: 20px 0;
+}
+
+.form-repository-filter .has-feedback .form-control-feedback {
+  line-height: $input-height-large;
+  height: $input-height-large;
+  z-index: 100;
+  color: #fff;
+  right: 180px;
 }

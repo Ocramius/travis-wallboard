@@ -1,19 +1,40 @@
-React = require('react')
-pkg = require('../../package.json')
+React = require 'react'
+director = require 'director'
+pkg = require '../../package.json'
 
 TravisApi = require './travis/api.coffee'
 RepositoryList = require './repository-list.coffee'
+RepositoryFilter = require './repository-filter.coffee'
 
 api = new TravisApi()
+interval = false
+
+router = new director.Router(
+
+  '/board/:filterName/:filterValue':
+    on: (filterName, filterValue) ->
+      clearInterval(interval)
+
+      filterParams = {}
+      filterParams[filterName] = filterValue
+
+      render = () ->
+        api.getRepos(filterParams).done((repos) ->
+          React.renderComponent(RepositoryList(repos: repos), document.body)
+        )
+
+      render()
+      interval = setInterval(render, 10000)
+    after: ->
+      clearInterval( interval )
+
+  '/': ->
+    React.renderComponent(RepositoryFilter(
+      onSubmit: (response) ->
+        router.setRoute "board/member/#{response.member}"
+    ), document.body)
 
 
-render = ->
-  api.getRepos(member: 'Halama').done((repos) ->
-    console.log 'repos', repos
-    console.time("Render")
-    React.renderComponent(RepositoryList(repos: repos), document.body)
-    console.timeEnd("Render")
-  )
+)
+router.init('/')
 
-render()
-setInterval(render, 10000)

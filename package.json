@@ -8,7 +8,8 @@
     "react": "~0.9",
     "underscore": "~1.6.0",
     "humanize-duration": "~0.6.1",
-    "damals": "~0.8.3"
+    "damals": "~0.8.3",
+    "director": "~1.2.2"
   },
   "devDependencies": {
     "browserify": "~2.36.0",

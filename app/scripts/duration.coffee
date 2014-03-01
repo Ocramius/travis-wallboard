@@ -18,7 +18,6 @@ Duration = React.createClass
   isRunning: ->
     !@props.finishedAt
 
-
   componentWillMount: ->
     @resolveRunning()
 

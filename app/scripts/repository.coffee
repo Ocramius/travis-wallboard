@@ -16,8 +16,9 @@ Repository = React.createClass
   classForStatus: ->
     switch @props.repository.last_build_state
       when 'started', 'created' then 'alert-warning'
-      when 'errored' then 'alert-danger'
-      else 'alert-success'
+      when 'errored', 'failed' then 'alert-danger'
+      when 'passed' then 'alert-success'
+      else 'alert-default'
 
   humanFinished: ->
     'Finished ' + timeAgo(new Date(@props.repository.last_build_finished_at)) if @props.repository.last_build_finished_at
@@ -27,7 +28,7 @@ Repository = React.createClass
 
   render: ->
     (div {className: "repository alert #{@classForStatus()}"},
-      (a {href: @travisUrl()}, @props.repository.slug),
+      (a {href: @travisUrl()}, @props.repository.slug)
       (span {className: 'pull-right'}, @props.repository.last_build_number)
       (div {className: 'repository-details'},
         (Duration {startedAt: @props.repository.last_build_started_at, finishedAt: @props.repository.last_build_finished_at }) if @props.repository.last_build_started_at
