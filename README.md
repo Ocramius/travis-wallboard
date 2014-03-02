@@ -7,7 +7,7 @@ Keep eye on your [Travis](https://travis-ci.org/) builds on wall display.
 
 Go to [Travis Wallboard](http://keboola.github.io/travis-wallboard/#/) and configure your wallboard.
 
-Displayed repositories can filtered either by Github member name ([/board/member/Halama](http://keboola.github.io/travis-wallboard/#/board/member/Halama)) or owner name ([/board/owner_name/facebook](http://keboola.github.io/travis-wallboard/#/board/owner_name/facebook)).
+Repositories can filtered either by Github member name ([/board/member/Halama](http://keboola.github.io/travis-wallboard/#/board/member/Halama)) or owner name ([/board/owner_name/facebook](http://keboola.github.io/travis-wallboard/#/board/owner_name/facebook)).
 
 
 ## Development
