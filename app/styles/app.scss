@@ -70,9 +70,11 @@ body {
   margin-right: 3px;
 }
 
+
+
 .form-repository-filter {
   border-radius: 4px;
-  max-width: 500px;
+  max-width: 550px;
   padding: 15px;
   padding-top: 10%;
   margin: 0 auto;
@@ -91,4 +93,18 @@ body {
   z-index: 100;
   color: #fff;
   right: 180px;
+}
+
+.sample-dashboards {
+  color: #EBEBEB;
+}
+
+.sample-dashboards ul {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.sample-dashboards a {
+  color: #eeeeee;
+  text-decoration: underline;
 }

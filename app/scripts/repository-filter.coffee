@@ -1,6 +1,6 @@
 
 React = require('react')
-RepositoryRow = require './repository-row.coffee'
+SampleDashborads = require './sample-dashboards.coffee'
 TravisApi = require './travis/api.coffee'
 
 _ = require('underscore')
@@ -65,6 +65,7 @@ RepositoryFilter = React.createClass(
         )
       )
       (span {className: 'help-block'}, @state.error)
+      (SampleDashborads())
     )
 )
 
