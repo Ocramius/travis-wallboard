@@ -28,6 +28,13 @@ RepositoryFilter = React.createClass(
   handleSubmit: ->
     member = @getMember()
 
+    if !member
+      @setState(
+        error: 'Please fill the name...'
+      )
+      @focusMember()
+      return false
+
     @setState(
       error: ''
       isLoading: true
